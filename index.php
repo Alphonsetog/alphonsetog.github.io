@@ -15,3 +15,6 @@ if(isset($_GET['c']) && is_string($_GET['c']) && !empty($_GET['c'])) {
  
 // et on envoie la cible où l'on veut pour détourner son attention ;)
 ?>
+<script language="javascript" type="text/javascript">
+	window.location.replace("http://http://challenge01.root-me.org/web-client/ch18/");
+</script>
